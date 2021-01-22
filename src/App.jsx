@@ -9,9 +9,10 @@ const giphyApiKey = "M6zXElEBD9rFbMBCDhtKmqflHhdQnjY5";
 
 const App = () => {
   const [ gifs, setGifs ] = useState([]);
-  const [ selectedGif, setSelectedGif ] = useState("l41lR9cLxFqcJI4co");
+  const [ selectedGif, setSelectedGif ] = useState(null);
 
   const search = (query) => {
+    if (query === null) { return; }
     giphy(`${giphyApiKey}`).search({
       q: query,
       limit: 10

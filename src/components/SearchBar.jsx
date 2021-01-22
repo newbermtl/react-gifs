@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchBar = (props) => {
+const SearchBar = ({ search }) => {
+  const [ term, setTerm ] = useState("");
   const handleChange = (event) => {
-    props.search(event.target.value);
+    setTerm(event.target.value);
+    search(event.target.value);
   };
 
   return (
-    <input className="form-search form-control" type="text" onChange={handleChange} />
+    <input className="form-search form-control" type="text" value={term} onChange={handleChange} />
   );
 };
 
